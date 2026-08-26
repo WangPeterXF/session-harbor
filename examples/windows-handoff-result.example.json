@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 1,
+  "deviceId": "win-example-desktop",
+  "status": "not-started",
+  "startedAt": null,
+  "completedAt": null,
+  "source": {
+    "release": "0.3.0",
+    "snapshotSha256": null,
+    "checksumsVerified": false
+  },
+  "environment": {
+    "windowsVersion": null,
+    "codexVersion": null,
+    "nodeVersion": null,
+    "filesystem": null,
+    "driveRoot": null
+  },
+  "validation": {
+    "npmCheck": "not-run",
+    "testsPassed": 0,
+    "testsFailed": 0,
+    "pluginValidator": "not-run",
+    "skillValidator": "not-run"
+  },
+  "liveTests": {
+    "destinationIdentity": "not-run",
+    "backup": "not-run",
+    "dashboard": "not-run",
+    "peerRead": "not-run",
+    "peerExport": "not-run",
+    "memoryDiffStage": "not-run",
+    "restore": "not-run",
+    "deleteRestorePilot": "not-run"
+  },
+  "evidence": [],
+  "warnings": [],
+  "errors": []
+}

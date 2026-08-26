@@ -1,0 +1,8 @@
+{
+  "contractVersion": 1,
+  "kind": "vault-protocol",
+  "protocolVersion": 1,
+  "minReaderVersion": 1,
+  "volumeId": "019f0000-5555-7666-8777-88889999aaaa",
+  "createdAt": "2026-08-26T00:00:00Z"
+}

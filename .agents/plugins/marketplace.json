@@ -1,0 +1,20 @@
+{
+  "name": "session-harbor",
+  "interface": {
+    "displayName": "SessionHarbor"
+  },
+  "plugins": [
+    {
+      "name": "session-harbor",
+      "source": {
+        "source": "local",
+        "path": "./plugins/session-harbor"
+      },
+      "policy": {
+        "installation": "AVAILABLE",
+        "authentication": "ON_INSTALL"
+      },
+      "category": "Productivity"
+    }
+  ]
+}

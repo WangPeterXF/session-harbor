@@ -1,0 +1,375 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://sessionharbor.dev/schemas/session-harbor-contracts-v1.schema.json",
+  "title": "SessionHarbor portable contracts v1",
+  "oneOf": [
+    { "$ref": "#/$defs/vaultProtocol" },
+    { "$ref": "#/$defs/deviceManifest" },
+    { "$ref": "#/$defs/headPointer" },
+    { "$ref": "#/$defs/sessionSnapshot" },
+    { "$ref": "#/$defs/memorySnapshot" },
+    { "$ref": "#/$defs/runRecord" }
+  ],
+  "$defs": {
+    "deviceId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9-]{2,63}$"
+    },
+    "projectId": {
+      "type": "string",
+      "pattern": "^[a-z0-9][a-z0-9._-]{2,127}$"
+    },
+    "uuid": {
+      "type": "string",
+      "format": "uuid"
+    },
+    "sha256": {
+      "type": "string",
+      "pattern": "^[0-9a-f]{64}$"
+    },
+    "timestamp": {
+      "type": "string",
+      "format": "date-time",
+      "pattern": "Z$"
+    },
+    "portablePath": {
+      "type": "string",
+      "minLength": 1,
+      "maxLength": 1024,
+      "pattern": "^(?!/)(?![A-Za-z]:)(?!.*\\\\)(?!.*(?:^|/)\\.{1,2}(?:/|$))(?!.*//).+$"
+    },
+    "contractHeader": {
+      "type": "object",
+      "properties": {
+        "contractVersion": { "const": 1 },
+        "kind": {
+          "enum": [
+            "device-manifest",
+            "vault-protocol",
+            "head-pointer",
+            "session-snapshot",
+            "memory-snapshot",
+            "run-record"
+          ]
+        }
+      },
+      "required": ["contractVersion", "kind"]
+    },
+    "vaultProtocol": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": 1 },
+        "kind": { "const": "vault-protocol" },
+        "protocolVersion": { "const": 1 },
+        "minReaderVersion": { "const": 1 },
+        "volumeId": { "$ref": "#/$defs/uuid" },
+        "createdAt": { "$ref": "#/$defs/timestamp" }
+      },
+      "required": [
+        "contractVersion",
+        "kind",
+        "protocolVersion",
+        "minReaderVersion",
+        "volumeId",
+        "createdAt"
+      ]
+    },
+    "deviceManifest": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": 1 },
+        "kind": { "const": "device-manifest" },
+        "deviceId": { "$ref": "#/$defs/deviceId" },
+        "displayName": { "type": "string", "minLength": 1, "maxLength": 120 },
+        "platform": { "enum": ["macos", "windows", "linux"] },
+        "createdAt": { "$ref": "#/$defs/timestamp" },
+        "capabilities": {
+          "type": "array",
+          "minItems": 1,
+          "uniqueItems": true,
+          "items": {
+            "enum": ["session-archive", "session-exchange", "memory-exchange"]
+          }
+        }
+      },
+      "required": [
+        "contractVersion",
+        "kind",
+        "deviceId",
+        "displayName",
+        "platform",
+        "createdAt",
+        "capabilities"
+      ]
+    },
+    "headPointer": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": 1 },
+        "kind": { "const": "head-pointer" },
+        "deviceId": { "$ref": "#/$defs/deviceId" },
+        "stream": { "enum": ["sessions", "memory"] },
+        "projectId": {
+          "oneOf": [{ "$ref": "#/$defs/projectId" }, { "type": "null" }]
+        },
+        "snapshotId": { "$ref": "#/$defs/uuid" },
+        "manifestPath": { "$ref": "#/$defs/portablePath" },
+        "manifestSha256": { "$ref": "#/$defs/sha256" },
+        "publishedAt": { "$ref": "#/$defs/timestamp" }
+      },
+      "required": [
+        "contractVersion",
+        "kind",
+        "deviceId",
+        "stream",
+        "projectId",
+        "snapshotId",
+        "manifestPath",
+        "manifestSha256",
+        "publishedAt"
+      ]
+    },
+    "sessionObject": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sessionId": { "$ref": "#/$defs/uuid" },
+        "sourceKey": {
+          "allOf": [
+            { "$ref": "#/$defs/portablePath" },
+            { "pattern": "^(sessions|archived_sessions)/.+\\.jsonl(?:\\.zst)?$" }
+          ]
+        },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "sizeBytes": { "type": "integer", "minimum": 0 },
+        "modifiedAt": { "$ref": "#/$defs/timestamp" },
+        "objectPath": { "$ref": "#/$defs/portablePath" },
+        "encoding": { "enum": ["identity", "zstd"] }
+      },
+      "required": [
+        "sessionId",
+        "sourceKey",
+        "sha256",
+        "sizeBytes",
+        "modifiedAt",
+        "objectPath",
+        "encoding"
+      ]
+    },
+    "sessionSnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": 1 },
+        "kind": { "const": "session-snapshot" },
+        "snapshotId": { "$ref": "#/$defs/uuid" },
+        "deviceId": { "$ref": "#/$defs/deviceId" },
+        "createdAt": { "$ref": "#/$defs/timestamp" },
+        "parentSnapshotId": {
+          "oneOf": [{ "$ref": "#/$defs/uuid" }, { "type": "null" }]
+        },
+        "source": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "type": { "const": "codex-local" },
+            "roots": {
+              "type": "array",
+              "minItems": 1,
+              "uniqueItems": true,
+              "items": { "enum": ["sessions", "archived_sessions"] }
+            }
+          },
+          "required": ["type", "roots"]
+        },
+        "objects": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/sessionObject" }
+        }
+      },
+      "required": [
+        "contractVersion",
+        "kind",
+        "snapshotId",
+        "deviceId",
+        "createdAt",
+        "parentSnapshotId",
+        "source",
+        "objects"
+      ]
+    },
+    "memoryEvidence": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "sessionId": { "$ref": "#/$defs/uuid" },
+        "sha256": { "$ref": "#/$defs/sha256" },
+        "locator": { "type": "string", "minLength": 1, "maxLength": 512 }
+      },
+      "required": ["sessionId", "sha256", "locator"]
+    },
+    "memoryEntry": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "entryId": { "$ref": "#/$defs/uuid" },
+        "operation": { "enum": ["upsert", "retract"] },
+        "scope": { "enum": ["global", "project", "thread"] },
+        "key": {
+          "allOf": [
+            { "$ref": "#/$defs/portablePath" },
+            { "minLength": 3, "maxLength": 192 }
+          ]
+        },
+        "text": { "type": "string", "minLength": 1, "maxLength": 8000 },
+        "observedAt": { "$ref": "#/$defs/timestamp" },
+        "sensitivity": { "enum": ["normal", "restricted"] },
+        "evidence": {
+          "type": "array",
+          "minItems": 1,
+          "items": { "$ref": "#/$defs/memoryEvidence" }
+        }
+      },
+      "required": [
+        "entryId",
+        "operation",
+        "scope",
+        "key",
+        "text",
+        "observedAt",
+        "sensitivity",
+        "evidence"
+      ]
+    },
+    "memorySnapshot": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": 1 },
+        "kind": { "const": "memory-snapshot" },
+        "snapshotId": { "$ref": "#/$defs/uuid" },
+        "projectId": { "$ref": "#/$defs/projectId" },
+        "deviceId": { "$ref": "#/$defs/deviceId" },
+        "createdAt": { "$ref": "#/$defs/timestamp" },
+        "parents": {
+          "type": "array",
+          "uniqueItems": true,
+          "items": { "$ref": "#/$defs/uuid" }
+        },
+        "review": {
+          "oneOf": [
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": { "const": "draft" },
+                "reviewedAt": { "type": "null" },
+                "reviewerDeviceId": { "type": "null" }
+              },
+              "required": ["status", "reviewedAt", "reviewerDeviceId"]
+            },
+            {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "status": { "const": "approved" },
+                "reviewedAt": { "$ref": "#/$defs/timestamp" },
+                "reviewerDeviceId": { "$ref": "#/$defs/deviceId" }
+              },
+              "required": ["status", "reviewedAt", "reviewerDeviceId"]
+            }
+          ]
+        },
+        "entries": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/memoryEntry" }
+        }
+      },
+      "required": [
+        "contractVersion",
+        "kind",
+        "snapshotId",
+        "projectId",
+        "deviceId",
+        "createdAt",
+        "parents",
+        "review",
+        "entries"
+      ]
+    },
+    "runRecord": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "contractVersion": { "const": 1 },
+        "kind": { "const": "run-record" },
+        "runId": { "$ref": "#/$defs/uuid" },
+        "deviceId": { "$ref": "#/$defs/deviceId" },
+        "operation": {
+          "enum": [
+            "doctor",
+            "archive",
+            "backup",
+            "verify",
+            "restore",
+            "sync-plan",
+            "sync-push",
+            "sync-pull",
+            "memory-draft",
+            "memory-approve",
+            "memory-diff",
+            "memory-stage",
+            "migration",
+            "device-init"
+          ]
+        },
+        "dryRun": { "type": "boolean" },
+        "status": { "enum": ["planned", "succeeded", "failed", "partial"] },
+        "startedAt": { "$ref": "#/$defs/timestamp" },
+        "completedAt": {
+          "oneOf": [{ "$ref": "#/$defs/timestamp" }, { "type": "null" }]
+        },
+        "inputRefs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/portablePath" }
+        },
+        "outputRefs": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/portablePath" }
+        },
+        "counts": {
+          "type": "object",
+          "propertyNames": { "pattern": "^[a-z][a-zA-Z0-9]{0,63}$" },
+          "additionalProperties": { "type": "integer", "minimum": 0 }
+        },
+        "warnings": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 2000 }
+        },
+        "errors": {
+          "type": "array",
+          "items": { "type": "string", "minLength": 1, "maxLength": 2000 }
+        }
+      },
+      "required": [
+        "contractVersion",
+        "kind",
+        "runId",
+        "deviceId",
+        "operation",
+        "dryRun",
+        "status",
+        "startedAt",
+        "completedAt",
+        "inputRefs",
+        "outputRefs",
+        "counts",
+        "warnings",
+        "errors"
+      ]
+    }
+  }
+}

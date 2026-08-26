@@ -1,0 +1,40 @@
+{
+  "name": "session-harbor",
+  "version": "0.3.0+codex.20260826095245",
+  "description": "Manage, back up, reclaim, restore, and exchange Codex sessions with verified safety gates.",
+  "author": {
+    "name": "Xiaofan Wang"
+  },
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "keywords": [
+    "codex",
+    "session",
+    "archive",
+    "backup",
+    "local-first"
+  ],
+  "skills": "./skills/",
+  "interface": {
+    "displayName": "SessionHarbor",
+    "shortDescription": "Session dashboard, incremental backup, verified cleanup, restore, and sharing.",
+    "longDescription": "Turns a dedicated Codex task into a session-management window with backup progress, status filters, retention settings, and exact restore selectors. It backs up every local Codex session incrementally into a content-addressed vault, then optionally cleans only local sessions whose current bytes are verified and have passed separate inactivity and backup-age gates. It supports manual, weekly, and removable-drive triggers; immutable device-owned snapshots; peer session exchange; reviewed evidence-linked memory; and read-only legacy migration. SessionHarbor is an independent project by Xiaofan Wang; destructive local cleanup remains separately gated.",
+    "developerName": "Xiaofan Wang",
+    "category": "Productivity",
+    "capabilities": [
+      "Local",
+      "Backup",
+      "Restore",
+      "Device Identity",
+      "Cross-device Sync",
+      "Retention Policy",
+      "Management Dashboard"
+    ],
+    "defaultPrompt": [
+      "Use SessionHarbor as my management center and show the current read-only dashboard.",
+      "Show a dry-run plan to incrementally back up all my Codex sessions.",
+      "Schedule all-session backup on drive mount and weekly without enabling cleanup.",
+      "Preview cleanup of verified local sessions inactive for 30 days.",
+      "List sessions already removed locally and restore a selected one."
+    ]
+  }
+}

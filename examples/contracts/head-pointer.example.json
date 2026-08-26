@@ -1,0 +1,11 @@
+{
+  "contractVersion": 1,
+  "kind": "head-pointer",
+  "deviceId": "mac-example-air",
+  "stream": "sessions",
+  "projectId": null,
+  "snapshotId": "019f0000-1111-7222-8333-444455556666",
+  "manifestPath": "devices/mac-example-air/sessions/manifests/2026/08/019f0000-1111-7222-8333-444455556666.json",
+  "manifestSha256": "cccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccccc",
+  "publishedAt": "2026-08-26T00:05:01Z"
+}

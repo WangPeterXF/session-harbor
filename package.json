@@ -1,0 +1,43 @@
+{
+  "name": "session-harbor",
+  "version": "0.3.0",
+  "description": "Local-first, integrity-checked archiving and cross-device continuity for Codex sessions.",
+  "author": "Xiaofan Wang",
+  "type": "module",
+  "license": "PolyForm-Noncommercial-1.0.0",
+  "bin": {
+    "session-harbor": "./plugins/session-harbor/scripts/session-harbor.mjs"
+  },
+  "files": [
+    "plugins/",
+    "docs/",
+    "examples/",
+    "schemas/",
+    "README.md",
+    "LICENSE",
+    "COMMERCIAL-LICENSE.md",
+    "CONTRIBUTING.md",
+    "SECURITY.md",
+    "THIRD_PARTY.md"
+  ],
+  "scripts": {
+    "check": "node --check plugins/session-harbor/scripts/session-harbor.mjs && node --check plugins/session-harbor/scripts/lib/archive-core.mjs && node --check plugins/session-harbor/scripts/lib/atomic-store.mjs && node --check plugins/session-harbor/scripts/lib/backup-runner.mjs && node --check plugins/session-harbor/scripts/lib/bridge-contracts.mjs && node --check plugins/session-harbor/scripts/lib/device-registry.mjs && node --check plugins/session-harbor/scripts/lib/management-dashboard.mjs && node --check plugins/session-harbor/scripts/lib/operation-state.mjs && node --check plugins/session-harbor/scripts/lib/settings.mjs && node --check plugins/session-harbor/scripts/lib/session-snapshot.mjs && node --check plugins/session-harbor/scripts/lib/peer-discovery.mjs && node --check plugins/session-harbor/scripts/lib/project-map.mjs && node --check plugins/session-harbor/scripts/lib/retention-runner.mjs && node --check plugins/session-harbor/scripts/lib/memory-exchange.mjs && node --check plugins/session-harbor/scripts/lib/migration.mjs && node --check plugins/session-harbor/scripts/launchagent.mjs && node --check plugins/session-harbor/scripts/windows-task.mjs && node --check plugins/session-harbor/scripts/validate-contract.mjs && node --check scripts/build-windows-handoff.mjs && npm run check:contracts",
+    "handoff:plan": "node scripts/build-windows-handoff.mjs --output ./SessionHarbor-Handoff",
+    "check:contracts": "node plugins/session-harbor/scripts/validate-contract.mjs",
+    "test": "node --test tests/*.test.mjs"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": [
+    "codex",
+    "openai-codex",
+    "session",
+    "archive",
+    "backup",
+    "local-first",
+    "macos",
+    "windows",
+    "cross-device"
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "contractVersion": 1,
+  "kind": "session-snapshot",
+  "snapshotId": "019f0000-1111-7222-8333-444455556666",
+  "deviceId": "mac-example-air",
+  "createdAt": "2026-08-26T00:05:00Z",
+  "parentSnapshotId": null,
+  "source": {
+    "type": "codex-local",
+    "roots": [
+      "sessions",
+      "archived_sessions"
+    ]
+  },
+  "objects": [
+    {
+      "sessionId": "019f0000-aaaa-7bbb-8ccc-ddddeeeeffff",
+      "sourceKey": "sessions/2026/08/26/rollout-2026-08-26T08-00-00-019f0000-aaaa-7bbb-8ccc-ddddeeeeffff.jsonl",
+      "sha256": "aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa",
+      "sizeBytes": 4096,
+      "modifiedAt": "2026-08-26T00:04:00Z",
+      "objectPath": "devices/mac-example-air/sessions/objects/sha256/aa/aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa.jsonl",
+      "encoding": "identity"
+    }
+  ]
+}

@@ -1,0 +1,32 @@
+{
+  "contractVersion": 1,
+  "kind": "memory-snapshot",
+  "snapshotId": "019f0000-2222-7333-8444-555566667777",
+  "projectId": "session-harbor",
+  "deviceId": "mac-example-air",
+  "createdAt": "2026-08-26T00:10:00Z",
+  "parents": [],
+  "review": {
+    "status": "approved",
+    "reviewedAt": "2026-08-26T00:09:00Z",
+    "reviewerDeviceId": "mac-example-air"
+  },
+  "entries": [
+    {
+      "entryId": "019f0000-3333-7444-8555-666677778888",
+      "operation": "upsert",
+      "scope": "project",
+      "key": "decisions/storage-safety",
+      "text": "Every mutating command is dry-run by default and requires explicit apply authorization.",
+      "observedAt": "2026-08-26T00:08:00Z",
+      "sensitivity": "normal",
+      "evidence": [
+        {
+          "sessionId": "019f0000-aaaa-7bbb-8ccc-ddddeeeeffff",
+          "sha256": "bbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbbb",
+          "locator": "response_item:42"
+        }
+      ]
+    }
+  ]
+}

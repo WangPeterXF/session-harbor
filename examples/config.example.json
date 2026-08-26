@@ -1,0 +1,37 @@
+{
+  "version": 4,
+  "codexHome": "~/.codex",
+  "destination": "/Volumes/EXTERNAL_DRIVE/SessionHarbor",
+  "roots": ["sessions", "archived_sessions"],
+  "minimumSizeMB": 5,
+  "compression": "none",
+  "compressionLevel": 19,
+  "strictOpenFileCheck": true,
+  "backup": {
+    "scope": "all",
+    "allowPartial": true,
+    "verifyExistingObjects": false
+  },
+  "retention": {
+    "cleanupAfterInactiveDays": 30,
+    "minimumBackupAgeDays": 7,
+    "reclaimAction": "keep",
+    "autoReclaim": false
+  },
+  "device": {
+    "id": "",
+    "displayName": "",
+    "platform": "macos"
+  },
+  "exchange": {
+    "adapter": "filesystem",
+    "storageClass": "stable-mounted",
+    "autoPublish": false
+  },
+  "projects": {},
+  "memory": {
+    "autoDraft": true,
+    "autoPublish": false,
+    "requireEvidence": true
+  }
+}

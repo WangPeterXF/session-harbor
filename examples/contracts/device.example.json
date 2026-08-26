@@ -1,0 +1,13 @@
+{
+  "contractVersion": 1,
+  "kind": "device-manifest",
+  "deviceId": "mac-example-air",
+  "displayName": "Example MacBook Air",
+  "platform": "macos",
+  "createdAt": "2026-08-26T00:00:00Z",
+  "capabilities": [
+    "session-archive",
+    "session-exchange",
+    "memory-exchange"
+  ]
+}

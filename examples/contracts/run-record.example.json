@@ -1,0 +1,24 @@
+{
+  "contractVersion": 1,
+  "kind": "run-record",
+  "runId": "019f0000-4444-7555-8666-777788889999",
+  "deviceId": "mac-example-air",
+  "operation": "sync-push",
+  "dryRun": false,
+  "status": "succeeded",
+  "startedAt": "2026-08-26T00:11:00Z",
+  "completedAt": "2026-08-26T00:11:03Z",
+  "inputRefs": [
+    "devices/mac-example-air/sessions/manifests/2026/08/019f0000-1111-7222-8333-444455556666.json"
+  ],
+  "outputRefs": [
+    "devices/mac-example-air/runs/2026/08/019f0000-4444-7555-8666-777788889999.json"
+  ],
+  "counts": {
+    "objectsDiscovered": 1,
+    "objectsPublished": 1,
+    "conflicts": 0
+  },
+  "warnings": [],
+  "errors": []
+}

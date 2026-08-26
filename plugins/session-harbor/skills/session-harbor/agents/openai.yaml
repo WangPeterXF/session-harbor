@@ -1,0 +1,4 @@
+interface:
+  display_name: "SessionHarbor"
+  short_description: "Manage session backup, retention, progress, and restore"
+  default_prompt: "Use $session-harbor as my session management center and show the read-only dashboard before proposing changes."
