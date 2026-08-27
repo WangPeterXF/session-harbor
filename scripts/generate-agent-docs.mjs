@@ -57,7 +57,7 @@ ${sources.map(([file, description]) => `- [${file}](${webLink(file)}): ${descrip
 
 const fullParts = await Promise.all(
   sources.map(async ([file]) => {
-    const body = await readFile(path.join(root, file), 'utf8');
+    const body = (await readFile(path.join(root, file), 'utf8')).replace(/\r\n/g, '\n');
     return `\n\n---\n\n# Source: ${file}\n\n${body.trim()}\n`;
   })
 );
