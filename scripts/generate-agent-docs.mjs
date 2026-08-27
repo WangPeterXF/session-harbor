@@ -80,7 +80,7 @@ for (const [target, expected] of outputs) {
   if (checkOnly) {
     let actual = '';
     try {
-      actual = await readFile(target, 'utf8');
+      actual = (await readFile(target, 'utf8')).replace(/\r\n/g, '\n');
     } catch {
       // Missing generated files are reported as drift below.
     }
