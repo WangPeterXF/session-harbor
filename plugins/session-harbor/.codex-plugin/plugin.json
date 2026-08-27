@@ -1,6 +1,6 @@
 {
   "name": "session-harbor",
-  "version": "0.3.0+codex.20260827011935",
+  "version": "0.3.0+codex.20260827021245",
   "description": "Back up, verify, reclaim, restore, and exchange Codex sessions with fail-closed safety gates.",
   "author": {
     "name": "Xiaofan Wang",
@@ -24,7 +24,7 @@
   "skills": "./skills/",
   "interface": {
     "displayName": "SessionHarbor",
-    "shortDescription": "Session dashboard, incremental backup, verified cleanup, restore, and sharing.",
+    "shortDescription": "Codex backup, cleanup, restore",
     "longDescription": "Turns a dedicated Codex task into a session-management window with backup progress, status filters, retention settings, and exact restore selectors. It backs up every local Codex session incrementally into a content-addressed vault, then optionally cleans only local sessions whose current bytes are verified and have passed separate inactivity and backup-age gates. It supports manual, weekly, and removable-drive triggers; immutable device-owned snapshots; peer session exchange; reviewed evidence-linked memory; and read-only legacy migration. SessionHarbor is an independent project by Xiaofan Wang; destructive local cleanup remains separately gated.",
     "developerName": "Xiaofan Wang",
     "category": "Productivity",

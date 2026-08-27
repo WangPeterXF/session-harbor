@@ -8,7 +8,7 @@ SessionHarbor has been submitted, reviewed, endorsed, or accepted by OpenAI.
 - **Plugin name:** SessionHarbor
 - **Developer identity:** Xiaofan Wang (individual verification required in the submission portal)
 - **Category:** Productivity
-- **Short description:** Back up, reclaim, restore, and review Codex sessions safely.
+- **Short description:** Codex backup, cleanup, restore
 - **Long description:** SessionHarbor turns a dedicated Codex task into a local session-management
   center. It incrementally backs up every stable local Codex rollout to a content-addressed vault,
   verifies stored bytes, reports progress and retention waits, and restores selected raw sessions.
@@ -65,10 +65,10 @@ and whether an approval was requested at the correct boundary.
 
 - [ ] Individual developer identity verified in the OpenAI Platform organization used for submission.
 - [ ] Apps Management write permission available for the submitter.
-- [ ] Plugin bundle passes the current official validator.
-- [ ] Skill bundle passes the current official validator.
+- [x] Plugin bundle passes the current official validator.
+- [x] Skill bundle passes the current official validator.
 - [ ] All five positive and three negative discovery cases replayed in new tasks.
-- [ ] Website, support, privacy, terms, logo, descriptions, and starter prompts publicly reachable.
+- [x] Website, support, privacy, terms, logo, descriptions, and starter prompts publicly reachable.
 - [ ] Current release notes and preview limitations supplied.
 - [ ] Country availability explicitly reviewed.
 - [ ] No claim of OpenAI affiliation, endorsement, or OSI open-source licensing.

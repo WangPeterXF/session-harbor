@@ -25,6 +25,10 @@ test('plugin public metadata has valid policy URLs, bundled assets, and at most 
   const manifest = JSON.parse(await read('plugins/session-harbor/.codex-plugin/plugin.json'));
 
   assert.equal(manifest.name, 'session-harbor');
+  assert.ok(
+    manifest.interface.shortDescription.length <= 30,
+    'public-directory short description must stay at or below 30 characters'
+  );
   assert.match(manifest.interface.websiteURL, /^https:\/\//);
   assert.match(manifest.interface.privacyPolicyURL, /^https:\/\//);
   assert.match(manifest.interface.termsOfServiceURL, /^https:\/\//);
