@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url';
 const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
 async function read(relativePath) {
-  return readFile(path.join(root, relativePath), 'utf8');
+  return (await readFile(path.join(root, relativePath), 'utf8')).replace(/\r\n/g, '\n');
 }
 
 test('repository agent guidance stays concise and routes to authoritative safety docs', async () => {
