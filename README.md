@@ -27,7 +27,7 @@ Open a new Codex task and paste the complete pinned prompt for
 [English](docs/bootstrap-prompt.en.md) or [简体中文](docs/bootstrap-prompt.zh-CN.md). A compact version is:
 
 ```text
-Set up SessionHarbor from https://github.com/WangPeterXF/session-harbor using the pinned v0.3.0
+Set up SessionHarbor from https://github.com/WangPeterXF/session-harbor using the pinned v0.3.1
 bootstrap prompt. Verify the owner, tag, license, and plugin before installing. Make this task my
 SessionHarbor management center, start with the read-only dashboard, and do not mutate any real
 session or drive without a separate explicit approval.
@@ -54,7 +54,7 @@ SessionHarbor is not Open Source Initiative (OSI) open-source software.
 
 ## Status
 
-Version `0.3.0` implements full incremental backup, verified local cleanup, restore, cross-device
+Version `0.3.1` implements full incremental backup, verified local cleanup, restore, cross-device
 continuity, a conversational management dashboard, and multi-mode scheduling. Automated validation uses synthetic Codex homes, temporary
 vaults, simulated interruptions, and Mac/Windows path fixtures. Each installation must still pass the
 physical-drive checklist before local cleanup is enabled.
@@ -65,13 +65,13 @@ evidence source.
 
 The initial cross-platform validation record, Windows defects found during physical-drive testing,
 and remaining preview limitations are summarized in the
-[v0.3.0 release notes](docs/release-notes-v0.3.0.md).
+[v0.3.1 release notes](docs/release-notes-v0.3.1.md).
 
 ## Management task behavior
 
 The repository includes copy-ready bootstrap prompts for
 [Chinese](docs/bootstrap-prompt.zh-CN.md) and [English](docs/bootstrap-prompt.en.md), pinned to the
-official `WangPeterXF/session-harbor` `v0.3.0` release. The prompt asks Codex to verify the pinned
+official `WangPeterXF/session-harbor` `v0.3.1` release. The prompt asks Codex to verify the pinned
 repository and license, add the repository marketplace, install the plugin, read the verified skill
 for the current chat, and turn that task into the user's long-lived SessionHarbor management center.
 

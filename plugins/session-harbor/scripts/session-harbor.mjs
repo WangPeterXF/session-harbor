@@ -48,7 +48,7 @@ import {
 } from "./lib/memory-exchange.mjs";
 import { migrateLayout } from "./lib/migration.mjs";
 
-const CLI_VERSION = "0.3.0";
+const CLI_VERSION = "0.3.1";
 
 export async function main(argv = process.argv.slice(2), io = console) {
   const parsed = parseArgs(argv);

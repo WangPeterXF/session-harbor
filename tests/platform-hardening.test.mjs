@@ -31,7 +31,7 @@ test("Node entrypoints execute when invoked through native Windows paths", async
     "windows-task.mjs",
   );
   const cli = await execFileAsync(process.execPath, [cliPath, "version"]);
-  assert.match(cli.stdout, /^session-harbor 0\.3\.0/m);
+  assert.match(cli.stdout, /^session-harbor 0\.3\.1/m);
   const task = await execFileAsync(process.execPath, [taskPath, "help"]);
   assert.match(task.stdout, /node windows-task\.mjs render/);
 });

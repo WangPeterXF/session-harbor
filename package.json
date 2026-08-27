@@ -1,6 +1,6 @@
 {
   "name": "session-harbor",
-  "version": "0.3.0",
+  "version": "0.3.1",
   "description": "Local-first Codex session backup, verified cleanup, restore, and reviewed cross-device continuity.",
   "author": "Xiaofan Wang",
   "type": "module",

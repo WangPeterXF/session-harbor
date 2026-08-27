@@ -2,16 +2,21 @@
 
 ## Unreleased
 
-- Added a root `AGENTS.md`, machine-oriented agent index, generated `llms.txt`/`llms-full.txt`,
-  discovery prompt evals, and a lightweight GitHub Pages site.
-- Activated macOS, Windows, and Linux CI across Node.js 20 and 22, including generated-document and
-  package-content checks.
-- Added structured bug, compatibility, and feature issue forms plus a safety-focused pull request
-  template.
-- Added public privacy, terms, and support pages and expanded plugin discovery/listing metadata with
-  at most three starter prompts.
-- Added a GitHub social preview asset and reorganized the README first screen around all-session
-  backup, verified local-space reclamation, restore, and reviewed cross-device context.
+## 0.3.1 - 2026-08-27
+
+- Included `AGENTS.md`, plugin discovery evals, privacy, support, and terms files in immutable
+  Windows handoff source snapshots, with regression coverage for every required path.
+- Normalized rollout timestamps to integer milliseconds so NTFS/exFAT timestamp precision drift no
+  longer leaves byte-identical sessions permanently pending.
+- Added stable-stat guards around existing-source hashing and revision copying, including rejection
+  when bytes change after a content-addressed revision path is planned.
+- Refreshed catalog metadata after a verified byte-identical backup and covered the Windows
+  timestamp round-trip with a synthetic regression test.
+- Added agent-oriented repository metadata, generated `llms.txt`/`llms-full.txt`, discovery prompt
+  evals, a lightweight GitHub Pages site, and cross-platform CI on Node.js 20 and 22.
+- Added structured issue forms, public privacy/terms/support pages, plugin listing metadata, and a
+  social preview centered on backup, verified cleanup, restore, and reviewed cross-device context.
+
 
 ## 0.3.0 - 2026-08-26
 

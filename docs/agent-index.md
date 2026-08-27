@@ -5,7 +5,7 @@
 ## Identity
 
 - Repository: <https://github.com/WangPeterXF/session-harbor>
-- Current public preview: `v0.3.0`
+- Current public preview: `v0.3.1`
 - Runtime: Node.js 20 or newer; zero production dependencies
 - Platforms: macOS and Windows; Linux is used only for synthetic CI coverage
 - License: PolyForm Noncommercial 1.0.0; source-available for noncommercial use, not OSI open source
@@ -29,8 +29,8 @@ dump cleanup, cloud-database synchronization, or native Codex sidebar reconstruc
 
 Open a new Codex task and paste one of the pinned bootstrap prompts:
 
-- English: <https://raw.githubusercontent.com/WangPeterXF/session-harbor/v0.3.0/docs/bootstrap-prompt.en.md>
-- 简体中文: <https://raw.githubusercontent.com/WangPeterXF/session-harbor/v0.3.0/docs/bootstrap-prompt.zh-CN.md>
+- English: <https://raw.githubusercontent.com/WangPeterXF/session-harbor/v0.3.1/docs/bootstrap-prompt.en.md>
+- 简体中文: <https://raw.githubusercontent.com/WangPeterXF/session-harbor/v0.3.1/docs/bootstrap-prompt.zh-CN.md>
 
 The prompts verify the official owner/release/license, add the repository marketplace, install the
 plugin, read the pinned skill, and start with a read-only dashboard.
@@ -84,7 +84,7 @@ SHA-256 verifies bytes; it does not encrypt the destination or authenticate anot
 - Physical-drive gates: `docs/live-readiness-checklist.md`
 - Management task semantics: `docs/management-center.md`
 - Contract schema: `schemas/session-harbor-contracts-v1.schema.json`
-- Release evidence: `docs/release-notes-v0.3.0.md`
+- Release evidence: `docs/release-notes-v0.3.1.md`
 - Privacy, terms, and support: `PRIVACY.md`, `TERMS.md`, `SUPPORT.md`
 
 ## Development and verification

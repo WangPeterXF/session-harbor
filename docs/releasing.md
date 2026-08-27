@@ -20,7 +20,7 @@
 ## Publication
 
 - Suggested repository name: `session-harbor`.
-- Keep `0.3.0` marked as a preview until all-session backup, restore, drive-remount scheduling, and
+- Keep `0.3.1` marked as a preview until all-session backup, restore, drive-remount scheduling, and
   independently backed-up live-data cleanup beta gates pass.
 - Keep `.github/workflows/ci.yml` green on macOS, Windows, and Linux before a release, then protect
   the default branch and require that CI after the initial workflow has completed successfully.

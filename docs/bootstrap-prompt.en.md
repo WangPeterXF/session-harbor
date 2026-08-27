@@ -1,6 +1,6 @@
 # One-paste SessionHarbor bootstrap prompt (English)
 
-This prompt is pinned to release `v0.3.0` of the official `WangPeterXF/session-harbor` repository.
+This prompt is pinned to release `v0.3.1` of the official `WangPeterXF/session-harbor` repository.
 
 Copy everything between `PROMPT START` and `PROMPT END` into a new Codex chat.
 
@@ -10,7 +10,7 @@ Make this chat my dedicated SessionHarbor management center for backing up, recl
 exchanging, and reviewing shared context from local Codex sessions.
 
 The only authorized source is the GitHub repository `WangPeterXF/session-harbor` pinned to
-`v0.3.0`. Perform the following workflow:
+`v0.3.1`. Perform the following workflow:
 
 1. Read `LICENSE`, `README.md`, `SECURITY.md`, and
    `plugins/session-harbor/skills/session-harbor/SKILL.md` from that exact revision. Confirm the
@@ -20,7 +20,7 @@ The only authorized source is the GitHub repository `WangPeterXF/session-harbor`
    approval prompts for network access, installation, and configuration writes. Never collect or
    copy `auth.json`, tokens, credentials, project trees, or real session contents.
 3. Prefer the supported repository marketplace flow:
-   - `codex plugin marketplace add WangPeterXF/session-harbor --ref v0.3.0`
+   - `codex plugin marketplace add WangPeterXF/session-harbor --ref v0.3.1`
    - confirm the marketplace name is `session-harbor`, then run
      `codex plugin add session-harbor@session-harbor`.
    If `codex plugin` is unavailable, clone the pinned revision into a persistent user directory for

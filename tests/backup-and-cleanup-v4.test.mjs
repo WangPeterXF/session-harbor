@@ -144,6 +144,39 @@ test("a session that grows after its verified copy does not block snapshot publi
   );
 });
 
+test("applied backup refreshes stable NTFS metadata drift when bytes still match", async () => {
+  const item = await fixture();
+  await runBackup(item.config, {
+    apply: true,
+    now: "2026-08-26T00:01:00Z",
+    nowMs: Date.parse("2026-08-26T00:01:00Z"),
+    skipOpenCheck: true,
+  });
+
+  await utimes(
+    item.recentSource,
+    new Date("2026-08-26T00:02:00Z"),
+    new Date("2026-08-26T00:02:00Z"),
+  );
+  const drifted = await stat(item.recentSource);
+  const refreshed = await runBackup(item.config, {
+    apply: true,
+    now: "2026-08-26T00:03:00Z",
+    nowMs: Date.parse("2026-08-26T00:03:00Z"),
+    skipOpenCheck: true,
+  });
+  assert.equal(refreshed.backup.copied, 0, "matching bytes do not create a revision");
+
+  const catalog = await loadCatalog(item.config);
+  const recent = catalog.entries.find((entry) => entry.sessionId === RECENT_ID);
+  assert.equal(recent.sourceMtimeMs, Math.trunc(drifted.mtimeMs));
+  assert.equal(recent.sourceCtimeMs, Math.trunc(drifted.ctimeMs));
+  const dashboard = await buildManagementDashboard(item.config, item.configPath, { limit: 0 });
+  assert.equal(dashboard.counts.backedCurrentLocal, 2);
+  assert.equal(dashboard.counts.backupPending, 0);
+  assert.equal((await verifyArchive(item.config)).ok, true);
+});
+
 test("shared catalog operations ignore objects owned by peer devices", async () => {
   const item = await fixture();
   const backed = await runBackup(item.config, {

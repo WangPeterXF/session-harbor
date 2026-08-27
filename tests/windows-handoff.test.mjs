@@ -10,7 +10,7 @@ test("Windows handoff is dry-run by default and publishes a checksummed source s
   const outputRoot = await mkdtemp(path.join(os.tmpdir(), "session-harbor-handoff-"));
   const options = {
     outputRoot,
-    handoffId: "synthetic-handoff-v0.3.0",
+    handoffId: "synthetic-handoff-v0.3.1",
     createdAt: "2026-08-26T00:00:00.000Z",
     producerDeviceId: "mac-synthetic-producer",
     producerEvidence: "../../results/mac-synthetic-producer-result.json",
@@ -45,6 +45,15 @@ test("Windows handoff is dry-run by default and publishes a checksummed source s
   assert.match(windowsPrompt, new RegExp(options.handoffId));
   assert.match(windowsPrompt, /devices\/mac-synthetic-producer/);
   assert.match(checksums, /source\/plugins\/session-harbor\/\.codex-plugin\/plugin\.json/);
+  for (const requiredPath of [
+    "AGENTS.md",
+    "evals/plugin-discovery.json",
+    "PRIVACY.md",
+    "SUPPORT.md",
+    "TERMS.md",
+  ]) {
+    assert.match(checksums, new RegExp(`source/${requiredPath.replaceAll(".", "\\.")}`));
+  }
   assert.match(checksums, /WINDOWS_HANDOFF\.md/);
   assert.match(checksums, /WINDOWS_CODEX_PROMPT\.zh-CN\.txt/);
   assert.doesNotMatch(checksums, /source\/\.git\//);

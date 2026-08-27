@@ -65,7 +65,7 @@ test("version and --version both return the CLI version", async () => {
   for (const args of [["version"], ["--version"]]) {
     const output = captureIo();
     assert.equal(await main(args, output.io), 0);
-    assert.deepEqual(output.stdout, ["session-harbor 0.3.0"]);
+    assert.deepEqual(output.stdout, ["session-harbor 0.3.1"]);
   }
 });
 

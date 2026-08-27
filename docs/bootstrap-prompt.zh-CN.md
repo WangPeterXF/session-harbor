@@ -1,6 +1,6 @@
 # SessionHarbor 一段式 Codex 引导提示词（中文）
 
-本提示词固定使用官方仓库 `WangPeterXF/session-harbor` 的 `v0.3.0` 版本。
+本提示词固定使用官方仓库 `WangPeterXF/session-harbor` 的 `v0.3.1` 版本。
 
 复制 `PROMPT START` 与 `PROMPT END` 之间的全部内容，粘贴到一个新的 Codex 对话中。
 
@@ -8,12 +8,12 @@
 
 请把这个对话设置为我的“SessionHarbor 管理中心”，负责本机 Codex session 的备份、空间清理、恢复、跨设备交换和经过审核的记忆共享。
 
-SessionHarbor 的唯一授权来源是 GitHub 仓库 `WangPeterXF/session-harbor`，固定版本为 `v0.3.0`。请依次完成下面的工作：
+SessionHarbor 的唯一授权来源是 GitHub 仓库 `WangPeterXF/session-harbor`，固定版本为 `v0.3.1`。请依次完成下面的工作：
 
 1. 先读取该版本仓库中的 `LICENSE`、`README.md`、`SECURITY.md` 和 `plugins/session-harbor/skills/session-harbor/SKILL.md`，确认来源、非商业许可和安全边界。不要从搜索结果、分叉仓库或第三方压缩包安装。
 2. 检查当前系统、Codex CLI、Node.js、现有 SessionHarbor 安装和 marketplace 状态。任何下载、配置写入或插件安装都遵循当前 Codex 的权限审批；不要索取或复制 `auth.json`、令牌、凭据、项目文件或真实会话内容。
 3. 优先使用官方支持的仓库 marketplace 流程：
-   - `codex plugin marketplace add WangPeterXF/session-harbor --ref v0.3.0`
+   - `codex plugin marketplace add WangPeterXF/session-harbor --ref v0.3.1`
    - 确认 marketplace 名为 `session-harbor` 后，执行 `codex plugin add session-harbor@session-harbor`。
    如果当前环境没有可用的 `codex plugin` 命令，可把固定版本克隆到一个持久的用户目录进行本地验证，但不要自行改写 marketplace 或假装安装成功。
 4. 安装后不要声称插件已在当前对话中热加载。为了让当前对话立即可用，请从已核验的仓库副本完整读取 SessionHarbor 的 `SKILL.md` 和它针对当前任务指向的参考文件，并在本对话后续严格遵循。也要说明新安装的插件会在新 Codex 对话中正式可用。

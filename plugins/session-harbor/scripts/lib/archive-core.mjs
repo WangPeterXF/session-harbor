@@ -430,8 +430,8 @@ export async function scanSessions(config, options = {}) {
 
       if (!info.isFile()) continue;
       const sizeBytes = Number(info.size);
-      const mtimeMs = Number(info.mtimeMs);
-      const ctimeMs = Number(info.ctimeMs);
+      const mtimeMs = Math.trunc(Number(info.mtimeMs));
+      const ctimeMs = Math.trunc(Number(info.ctimeMs));
       const age = Math.max(0, nowMs - mtimeMs);
       let reason = "eligible";
       if (sizeBytes < minimumBytes) reason = "below-size-threshold";
@@ -689,7 +689,9 @@ async function archiveOne(config, catalog, item, options) {
       `Archived copy failed verification: ${entry.targetRelativePath}`,
     );
   }
+  const sourceBefore = await stableStat(item.sourcePath);
   const sourceDigest = await hashFile(item.sourcePath);
+  await assertSameFileSnapshot(item.sourcePath, sourceBefore, "SOURCE_CHANGED_DURING_HASH");
   if (sourceDigest !== entry.sha256 && !options.reclaim) {
     const revisionRelativePath = config.device.id
       ? contentObjectRelativePath(config.device.id, sourceDigest, item.format)
@@ -714,6 +716,13 @@ async function archiveOne(config, catalog, item, options) {
       ...options,
       destinationRoot: config.destination,
     });
+    if (snapshot.sha256 !== sourceDigest) {
+      await rm(revisionTargetPath, { force: true });
+      throw new ColdStorageError(
+        "SOURCE_CHANGED_DURING_COPY",
+        `Source changed after its revision path was planned: ${item.sourceKey}`,
+      );
+    }
     entry.revisions ||= [];
     entry.revisions.push({
       targetRelativePath: entry.targetRelativePath,
@@ -752,6 +761,18 @@ async function archiveOne(config, catalog, item, options) {
       "SOURCE_CHANGED_AFTER_COPY",
       `Source changed after the verified copy: ${item.sourceKey}`,
     );
+  }
+
+  const stableMetadataMatches =
+    Number(entry.sizeBytes) === Number(sourceBefore.size) &&
+    Number(entry.sourceMtimeMs) === Number(sourceBefore.mtimeMs) &&
+    (entry.sourceCtimeMs === undefined ||
+      Number(entry.sourceCtimeMs) === Number(sourceBefore.ctimeMs));
+  if (!stableMetadataMatches && apply) {
+    entry.sizeBytes = Number(sourceBefore.size);
+    entry.sourceMtimeMs = Number(sourceBefore.mtimeMs);
+    entry.sourceCtimeMs = Number(sourceBefore.ctimeMs);
+    await saveCatalog(config, catalog);
   }
 
   if (config.retention.reclaimAction === "keep") {
