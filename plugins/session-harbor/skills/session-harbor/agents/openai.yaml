@@ -1,4 +1,4 @@
 interface:
   display_name: "SessionHarbor"
-  short_description: "Manage session backup, retention, progress, and restore"
+  short_description: "Back up, reclaim, restore, and review Codex sessions"
   default_prompt: "Use $session-harbor as my session management center and show the read-only dashboard before proposing changes."

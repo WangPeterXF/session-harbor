@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SessionHarbor — verified Codex session backup and continuity</title>
+  <meta name="description" content="Back up, verify, reclaim, restore, and review Codex session context across macOS and Windows with a local-first filesystem vault.">
+  <link rel="canonical" href="https://wangpeterxf.github.io/session-harbor/">
+  <link rel="describedby" href="https://wangpeterxf.github.io/session-harbor/llms.txt">
+  <link rel="alternate" type="text/markdown" href="https://wangpeterxf.github.io/session-harbor/agent-index.md" title="SessionHarbor agent index">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SessionHarbor">
+  <meta property="og:description" content="One verified data hub for Codex session backup, safe local cleanup, restore, and reviewed cross-device context.">
+  <meta property="og:url" content="https://wangpeterxf.github.io/session-harbor/">
+  <meta property="og:image" content="https://wangpeterxf.github.io/session-harbor/assets/sessionharbor-github-social-preview-v0.3.0.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareSourceCode",
+    "name": "SessionHarbor",
+    "description": "Local-first, integrity-checked backup, verified local-space reclamation, restore, and reviewed cross-device continuity for Codex sessions.",
+    "codeRepository": "https://github.com/WangPeterXF/session-harbor",
+    "programmingLanguage": "JavaScript",
+    "runtimePlatform": "Node.js 20 or newer",
+    "operatingSystem": ["macOS", "Windows"],
+    "license": "https://github.com/WangPeterXF/session-harbor/blob/main/LICENSE",
+    "version": "0.3.0",
+    "author": {"@type": "Person", "name": "Xiaofan Wang"}
+  }
+  </script>
+  <style>
+    :root { color-scheme: dark; --bg: #030816; --panel: #09162a; --text: #f5f8ff; --muted: #a9b9d0; --cyan: #20dceb; --line: #1b3855; --green: #61e6aa; }
+    * { box-sizing: border-box; }
+    body { margin: 0; font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif; background: radial-gradient(circle at 50% 0%, #0b2540, var(--bg) 44%); color: var(--text); line-height: 1.6; }
+    a { color: var(--cyan); }
+    .wrap { width: min(1100px, calc(100% - 40px)); margin: 0 auto; }
+    header { padding: 72px 0 36px; text-align: center; }
+    .eyebrow { color: var(--cyan); letter-spacing: .14em; text-transform: uppercase; font-size: .78rem; font-weight: 750; }
+    h1 { margin: 8px 0 14px; font-size: clamp(3rem, 10vw, 6.5rem); line-height: .96; letter-spacing: -.06em; }
+    h1 span { color: var(--cyan); }
+    .lead { max-width: 820px; margin: 0 auto; color: var(--muted); font-size: clamp(1.05rem, 2vw, 1.35rem); }
+    .actions { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; margin: 28px 0; }
+    .button { display: inline-block; padding: 12px 18px; border-radius: 10px; text-decoration: none; font-weight: 700; border: 1px solid var(--line); background: var(--panel); }
+    .button.primary { background: var(--cyan); border-color: var(--cyan); color: #00151b; }
+    .hero { width: 100%; display: block; border: 1px solid var(--line); border-radius: 18px; box-shadow: 0 24px 80px #0008; }
+    section { padding: 38px 0; }
+    h2 { margin: 0 0 16px; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.03em; }
+    .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+    .card { padding: 22px; border: 1px solid var(--line); border-radius: 14px; background: color-mix(in srgb, var(--panel) 88%, transparent); }
+    .card h3 { margin: 0 0 7px; font-size: 1.08rem; }
+    .card p { margin: 0; color: var(--muted); }
+    pre { white-space: pre-wrap; overflow-wrap: anywhere; padding: 20px; border: 1px solid var(--line); border-radius: 12px; background: #020712; color: #d9faff; }
+    .proof { display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px; }
+    .metric { padding: 18px; text-align: center; border: 1px solid var(--line); border-radius: 12px; }
+    .metric strong { display: block; color: var(--green); font-size: 1.7rem; }
+    .note { border-left: 3px solid var(--cyan); padding: 12px 16px; color: var(--muted); background: #08172a; }
+    footer { padding: 40px 0 60px; color: var(--muted); border-top: 1px solid var(--line); }
+    @media (max-width: 760px) { .grid, .proof { grid-template-columns: 1fr; } header { padding-top: 48px; } }
+  </style>
+</head>
+<body>
+  <header class="wrap">
+    <div class="eyebrow">Local-first Codex session management</div>
+    <h1>Session<span>Harbor</span></h1>
+    <p class="lead">Back up every stable Codex session, reclaim local disk space only after verified safety gates, restore raw conversations, and review evidence-linked work from other devices.</p>
+    <div class="actions">
+      <a class="button primary" href="https://github.com/WangPeterXF/session-harbor">View on GitHub</a>
+      <a class="button" href="https://raw.githubusercontent.com/WangPeterXF/session-harbor/v0.3.0/docs/bootstrap-prompt.en.md">Install with Codex</a>
+      <a class="button" href="agent-index.md">Agent index</a>
+    </div>
+    <img class="hero" src="assets/sessionharbor-github-social-preview-v0.3.0.jpg" alt="SessionHarbor connects multiple Codex devices to one verified data hub for backup, cleanup, restore, and reviewed context.">
+  </header>
+
+  <main class="wrap">
+    <section>
+      <h2>Three outcomes, one verified vault</h2>
+      <div class="grid">
+        <article class="card"><h3>Back up every session</h3><p>Incremental, content-addressed backup to an external drive or mounted NAS with immutable device-owned snapshots.</p></article>
+        <article class="card"><h3>Free space without blind deletion</h3><p>Backup and cleanup stay separate. Old local originals become eligible only after inactivity, backup-age, open-file, and fresh hash gates.</p></article>
+        <article class="card"><h3>Bridge device context</h3><p>macOS and Windows devices can inspect verified peer inventories and stage only reviewed, evidence-linked context.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>Start from a new Codex task</h2>
+      <pre>Set up SessionHarbor from https://github.com/WangPeterXF/session-harbor using the pinned v0.3.0 English bootstrap prompt. Verify the owner, tag, license, and plugin before installing. Start with the read-only dashboard and do not mutate any real session or drive without a separate explicit approval.</pre>
+      <p>Copy-ready prompts are available in <a href="https://raw.githubusercontent.com/WangPeterXF/session-harbor/v0.3.0/docs/bootstrap-prompt.en.md">English</a> and <a href="https://raw.githubusercontent.com/WangPeterXF/session-harbor/v0.3.0/docs/bootstrap-prompt.zh-CN.md">简体中文</a>.</p>
+    </section>
+
+    <section>
+      <h2>Preview evidence</h2>
+      <div class="proof">
+        <div class="metric"><strong>814/814</strong>Windows vault objects independently verified on macOS</div>
+        <div class="metric"><strong>88</strong>tests passed on both Windows and macOS for v0.3.0</div>
+        <div class="metric"><strong>SHA-256</strong>read-back verification before publication and cleanup</div>
+        <div class="metric"><strong>0</strong>automatic cleanup by default</div>
+      </div>
+      <p class="note">v0.3.0 remains a public preview. A real macOS deletion-and-restore pilot matched bytes and hash; real Windows session deletion has not been tested.</p>
+    </section>
+
+    <section>
+      <h2>For agents and AI search</h2>
+      <div class="grid">
+        <article class="card"><h3>Compact routing</h3><p><a href="llms.txt">llms.txt</a> points agents to the smallest authoritative source for each task.</p></article>
+        <article class="card"><h3>Combined context</h3><p><a href="llms-full.txt">llms-full.txt</a> is generated from reviewed repository documentation and checked for drift in CI.</p></article>
+        <article class="card"><h3>Repository rules</h3><p><a href="https://github.com/WangPeterXF/session-harbor/blob/main/AGENTS.md">AGENTS.md</a> gives coding agents exact safety invariants, source routes, and validation commands.</p></article>
+      </div>
+    </section>
+
+    <section>
+      <h2>License and privacy</h2>
+      <p>SessionHarbor is source-available for noncommercial use under PolyForm Noncommercial 1.0.0. Commercial use requires a separate written license. The tool has no developer-hosted service or telemetry and never sends session data to the developer. See the <a href="https://github.com/WangPeterXF/session-harbor/blob/main/PRIVACY.md">privacy policy</a>, <a href="https://github.com/WangPeterXF/session-harbor/blob/main/TERMS.md">terms</a>, and <a href="https://github.com/WangPeterXF/session-harbor/blob/main/SUPPORT.md">support guidance</a>.</p>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap">SessionHarbor is an independent project by Xiaofan Wang. It is not affiliated with or endorsed by OpenAI.</div>
+  </footer>
+</body>
+</html>

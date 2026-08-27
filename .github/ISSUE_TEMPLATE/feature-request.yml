@@ -1,0 +1,38 @@
+name: Feature proposal
+description: Propose a workflow without weakening local verification or user control.
+title: "[Proposal]: "
+labels: [enhancement]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: User problem
+      description: Describe the outcome and current workaround, not only a preferred implementation.
+    validations:
+      required: true
+  - type: textarea
+    id: workflow
+    attributes:
+      label: Proposed dry-run and applied workflow
+      description: Identify every read, write, delete, link, restore, network, or external-service boundary.
+    validations:
+      required: true
+  - type: textarea
+    id: safety
+    attributes:
+      label: Safety and privacy considerations
+      description: Explain destination identity, verification, rollback, credentials, and failure behavior.
+    validations:
+      required: true
+  - type: textarea
+    id: platforms
+    attributes:
+      label: Platforms and storage classes
+      placeholder: macOS, Windows, exFAT, mounted NAS, client-synced folder
+  - type: checkboxes
+    id: contribution
+    attributes:
+      label: Contribution policy
+      options:
+        - label: I understand the project currently accepts proposals and reports but not third-party code patches for merge.
+          required: true

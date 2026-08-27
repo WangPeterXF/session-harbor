@@ -1,9 +1,51 @@
 # SessionHarbor
 
+[![CI](https://github.com/WangPeterXF/session-harbor/actions/workflows/ci.yml/badge.svg)](https://github.com/WangPeterXF/session-harbor/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/WangPeterXF/session-harbor?include_prereleases)](https://github.com/WangPeterXF/session-harbor/releases)
+[![Node.js 20+](https://img.shields.io/badge/Node.js-20%2B-43853d)](package.json)
+[![License: PolyForm Noncommercial](https://img.shields.io/badge/license-PolyForm%20Noncommercial-2563eb)](LICENSE)
+[![No telemetry](https://img.shields.io/badge/telemetry-none-0f766e)](PRIVACY.md)
+
+![SessionHarbor connects multiple Codex devices to one verified data hub](docs/assets/sessionharbor-github-social-preview-v0.3.0.jpg)
+
+**Back up, verify, reclaim, restore, and review Codex session context across macOS and Windows.**
+
 SessionHarbor is an unofficial, local-first Codex plugin and zero-dependency Node.js CLI by Xiaofan
-Wang. It incrementally backs up every local Codex rollout to a verified filesystem vault, can clean
-up old local originals under a separate inactivity policy, and carries device-owned snapshots plus
-reviewed evidence-linked context between macOS and Windows.
+Wang. It turns an external drive or mounted NAS into a verified filesystem vault for every stable
+local Codex rollout.
+
+| Outcome | What SessionHarbor does |
+| --- | --- |
+| Back up every Codex session | Incremental, content-addressed backup with SHA-256 read-back and immutable device-owned snapshots. |
+| Free local disk space safely | Keeps backup and cleanup separate; old originals become eligible only after inactivity, backup-age, open-file, and fresh verification gates. |
+| Restore deleted local conversations | Materializes the verified raw rollout without consuming the vault copy. |
+| Bridge multiple Codex computers | Lets macOS and Windows devices inspect verified peer inventories and stage reviewed, evidence-linked context. |
+
+## Install with one Codex prompt
+
+Open a new Codex task and paste the complete pinned prompt for
+[English](docs/bootstrap-prompt.en.md) or [简体中文](docs/bootstrap-prompt.zh-CN.md). A compact version is:
+
+```text
+Set up SessionHarbor from https://github.com/WangPeterXF/session-harbor using the pinned v0.3.0
+bootstrap prompt. Verify the owner, tag, license, and plugin before installing. Make this task my
+SessionHarbor management center, start with the read-only dashboard, and do not mutate any real
+session or drive without a separate explicit approval.
+```
+
+The setup verifies `WangPeterXF/session-harbor` and the pinned release before installing the
+repo-local marketplace plugin. Installation, destination initialization, backup publication, local
+cleanup, restore, and scheduling remain separate decisions.
+
+## For agents and AI tools
+
+- [`AGENTS.md`](AGENTS.md): repository-wide safety invariants, source map, validation, and review rules.
+- [`docs/agent-index.md`](docs/agent-index.md): compact task router for installation, operation, and development.
+- [`llms.txt`](https://wangpeterxf.github.io/session-harbor/llms.txt): small web index pointing to authoritative Markdown sources.
+- [`llms-full.txt`](https://wangpeterxf.github.io/session-harbor/llms-full.txt): generated combined context, checked for drift in CI.
+- [`evals/plugin-discovery.json`](evals/plugin-discovery.json): five positive and three negative prompts for discovery precision and recall.
+
+Project page: <https://wangpeterxf.github.io/session-harbor/>
 
 SessionHarbor is source-available for noncommercial use under the
 [PolyForm Noncommercial License 1.0.0](LICENSE). Commercial use requires a separate written license;
@@ -25,7 +67,7 @@ The initial cross-platform validation record, Windows defects found during physi
 and remaining preview limitations are summarized in the
 [v0.3.0 release notes](docs/release-notes-v0.3.0.md).
 
-## One-paste Codex setup and management task
+## Management task behavior
 
 The repository includes copy-ready bootstrap prompts for
 [Chinese](docs/bootstrap-prompt.zh-CN.md) and [English](docs/bootstrap-prompt.en.md), pinned to the
@@ -288,5 +330,6 @@ SHA-256 detects corruption but does not encrypt the drive or authenticate anothe
 encrypted storage where loss of an unencrypted drive would be unacceptable.
 
 SessionHarbor is not affiliated with or endorsed by OpenAI. See [LICENSE](LICENSE),
-[COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md), [CONTRIBUTING.md](CONTRIBUTING.md),
-[SECURITY.md](SECURITY.md), and [THIRD_PARTY.md](THIRD_PARTY.md).
+[COMMERCIAL-LICENSE.md](COMMERCIAL-LICENSE.md), [PRIVACY.md](PRIVACY.md), [TERMS.md](TERMS.md),
+[SUPPORT.md](SUPPORT.md), [CONTRIBUTING.md](CONTRIBUTING.md), [SECURITY.md](SECURITY.md), and
+[THIRD_PARTY.md](THIRD_PARTY.md).

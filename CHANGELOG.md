@@ -1,5 +1,18 @@
 # Changelog
 
+## Unreleased
+
+- Added a root `AGENTS.md`, machine-oriented agent index, generated `llms.txt`/`llms-full.txt`,
+  discovery prompt evals, and a lightweight GitHub Pages site.
+- Activated macOS, Windows, and Linux CI across Node.js 20 and 22, including generated-document and
+  package-content checks.
+- Added structured bug, compatibility, and feature issue forms plus a safety-focused pull request
+  template.
+- Added public privacy, terms, and support pages and expanded plugin discovery/listing metadata with
+  at most three starter prompts.
+- Added a GitHub social preview asset and reorganized the README first screen around all-session
+  backup, verified local-space reclamation, restore, and reviewed cross-device context.
+
 ## 0.3.0 - 2026-08-26
 
 - Changed the project license before first public publication from MIT to

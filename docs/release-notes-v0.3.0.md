@@ -34,8 +34,9 @@ included in this repository or release.
 
 ## Preview limitations
 
-- The three-platform GitHub Actions definition ships as `docs/github-actions-ci.template.yml` and
-  must be activated by a repository owner whose GitHub credential can write workflow files.
+- The `v0.3.0` tag predates activation of the three-platform GitHub Actions workflow. The main branch
+  now carries `.github/workflows/ci.yml`; use the tag's recorded Mac/Windows evidence for the tagged
+  release and current Actions runs for later commits.
 - Normal schedules perform all-session incremental backup only. Automated cleanup is disabled by
   default and requires separate policy plus deletion authorization.
 - Windows removable-drive detection uses safe periodic polling in addition to a weekly trigger; it

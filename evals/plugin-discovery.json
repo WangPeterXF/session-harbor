@@ -1,0 +1,63 @@
+{
+  "schemaVersion": 1,
+  "plugin": "session-harbor",
+  "purpose": "Golden prompts for testing SessionHarbor discovery precision, recall, and safety routing.",
+  "cases": [
+    {
+      "id": "positive-large-history-backup",
+      "kind": "positive",
+      "prompt": "My local Codex conversation history is over 70 GB. Back up every session incrementally to my external drive without deleting anything.",
+      "expectedSelection": "session-harbor",
+      "expectedStart": "Read-only dashboard, doctor, and backup plan; no cleanup command is applied."
+    },
+    {
+      "id": "positive-dashboard",
+      "kind": "positive",
+      "prompt": "Show which Codex sessions are backed up, waiting, deleted locally, or still restorable.",
+      "expectedSelection": "session-harbor",
+      "expectedStart": "session-harbor dashboard --json --limit 50"
+    },
+    {
+      "id": "positive-retention-settings",
+      "kind": "positive",
+      "prompt": "Set my Codex cleanup policy to 30 inactive days plus 7 days after the latest verified backup, but do not enable automatic deletion.",
+      "expectedSelection": "session-harbor",
+      "expectedStart": "Show current settings and a dry-run settings change before requesting approval."
+    },
+    {
+      "id": "positive-restore",
+      "kind": "positive",
+      "prompt": "I need to restore one Codex conversation that was removed locally but still exists in my SessionHarbor vault.",
+      "expectedSelection": "session-harbor",
+      "expectedStart": "List exact restorable selectors and run restore as a dry-run first."
+    },
+    {
+      "id": "positive-peer-context",
+      "kind": "positive",
+      "prompt": "What have my Codex tasks on the other computer been doing? Use only reviewed evidence from the shared drive.",
+      "expectedSelection": "session-harbor",
+      "expectedStart": "Read-only peer and reviewed-memory status; do not invent or automatically adopt context."
+    },
+    {
+      "id": "negative-project-backup",
+      "kind": "negative",
+      "prompt": "Back up my Documents folder and photos to iCloud every night.",
+      "expectedSelection": "none",
+      "expectedStart": "Do not use SessionHarbor; it is not a general file-backup tool."
+    },
+    {
+      "id": "negative-chatgpt-export",
+      "kind": "negative",
+      "prompt": "Export all of my ChatGPT web conversations to Markdown.",
+      "expectedSelection": "none",
+      "expectedStart": "Do not use SessionHarbor; it manages local Codex rollout files only."
+    },
+    {
+      "id": "negative-crash-dumps",
+      "kind": "negative",
+      "prompt": "Find and delete old Codex and macOS crash dumps to free disk space.",
+      "expectedSelection": "none",
+      "expectedStart": "Do not use SessionHarbor; crash-dump cleanup is outside its scope."
+    }
+  ]
+}

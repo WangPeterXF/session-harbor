@@ -1,0 +1,33 @@
+# SessionHarbor
+
+> Local-first, integrity-checked backup, verified local-space reclamation, restore, and reviewed cross-device continuity for Codex sessions on macOS and Windows.
+
+SessionHarbor is an unofficial independent project by Xiaofan Wang. It is source-available for noncommercial use under PolyForm Noncommercial 1.0.0 and is not OSI open source. It never promises native Codex sidebar reconstruction. Begin operational work read-only; backup and cleanup are separate scopes.
+
+## Start here
+- [Machine-oriented agent index](https://wangpeterxf.github.io/session-harbor/agent-index.md): Task routing, install prompts, commands, safety gates, and source map.
+- [Combined SessionHarbor context](https://wangpeterxf.github.io/session-harbor/llms-full.txt): Curated single-file export for agents that need the complete operating context.
+- [Project website](https://wangpeterxf.github.io/session-harbor/): Human-readable product overview and install route.
+- [GitHub repository](https://github.com/WangPeterXF/session-harbor): Source, issues, releases, and verification history.
+
+## Primary documentation
+- [README.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/README.md): Human overview, installation, commands, safety model, and limitations.
+- [AGENTS.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/AGENTS.md): Repository guidance and code-review invariants for coding agents.
+- [docs/agent-index.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/docs/agent-index.md): Compact machine-oriented task and source router.
+- [plugins/session-harbor/skills/session-harbor/SKILL.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/plugins/session-harbor/skills/session-harbor/SKILL.md): Installed SessionHarbor operating workflow.
+- [docs/architecture.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/docs/architecture.md): Executable component architecture.
+- [docs/threat-model.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/docs/threat-model.md): Safety invariants, expected failures, and residual risks.
+- [docs/live-readiness-checklist.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/docs/live-readiness-checklist.md): Physical-drive validation and cleanup gates.
+- [docs/management-center.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/docs/management-center.md): Dedicated conversational management task semantics.
+- [PRIVACY.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/PRIVACY.md): Local data handling and destination privacy policy.
+- [TERMS.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/TERMS.md): Noncommercial terms and user responsibilities.
+- [SUPPORT.md](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/SUPPORT.md): Safe support and evidence-reporting route.
+
+## Structured contracts
+- [Contract v1 JSON Schema](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/schemas/session-harbor-contracts-v1.schema.json): Portable device, snapshot, head, run, memory, and protocol records.
+- [Plugin manifest](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/plugins/session-harbor/.codex-plugin/plugin.json): Installable plugin identity and discovery metadata.
+- [Discovery evaluation set](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/evals/plugin-discovery.json): Five positive and three negative golden prompts.
+
+## Optional
+- [Frozen three-layer design](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/docs/v2-architecture.md): Detailed architecture and invariants.
+- [OpenAI plugin submission pack](https://raw.githubusercontent.com/WangPeterXF/session-harbor/main/docs/openai-plugin-submission.md): Listing copy, test cases, URLs, and pre-submission checklist.

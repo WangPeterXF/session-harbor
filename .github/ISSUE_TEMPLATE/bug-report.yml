@@ -1,0 +1,58 @@
+name: Bug report
+description: Report a reproducible SessionHarbor defect using synthetic or redacted evidence.
+title: "[Bug]: "
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Do not upload real Codex rollouts, configs, catalogs, logs, credentials, archive objects, device identifiers, or personal paths.
+  - type: input
+    id: version
+    attributes:
+      label: SessionHarbor version
+      placeholder: 0.3.0+codex...
+    validations:
+      required: true
+  - type: dropdown
+    id: platform
+    attributes:
+      label: Platform
+      options: [macOS, Windows, Linux synthetic test, Other]
+    validations:
+      required: true
+  - type: input
+    id: environment
+    attributes:
+      label: Node, Codex, and filesystem versions
+      description: Include Node.js version, Codex version, and APFS/NTFS/exFAT/NAS/client-synced destination type.
+    validations:
+      required: true
+  - type: textarea
+    id: command
+    attributes:
+      label: Command and exact output
+      description: Redact personal paths and session identifiers. Preserve exact error codes.
+      render: shell
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: Synthetic reproduction
+      description: Explain how to reproduce with a temporary Codex home and destination.
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: Expected behavior and affected safety invariant
+    validations:
+      required: true
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Data-safety confirmation
+      options:
+        - label: I removed real sessions, credentials, personal paths, configs, catalogs, logs, and archive objects.
+          required: true

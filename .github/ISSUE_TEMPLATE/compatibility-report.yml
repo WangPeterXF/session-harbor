@@ -1,0 +1,52 @@
+name: Compatibility report
+description: Report a macOS, Windows, filesystem, scheduler, or removable-drive compatibility result.
+title: "[Compatibility]: "
+labels: [compatibility]
+body:
+  - type: input
+    id: versions
+    attributes:
+      label: SessionHarbor, Node.js, and Codex versions
+    validations:
+      required: true
+  - type: input
+    id: system
+    attributes:
+      label: Operating system and filesystem
+      placeholder: Windows 11 24H2, exFAT removable SSD
+    validations:
+      required: true
+  - type: dropdown
+    id: scope
+    attributes:
+      label: Tested scope
+      options:
+        - Synthetic only
+        - Read-only live diagnostics
+        - Applied backup
+        - Verify
+        - Synthetic restore
+        - Real restore
+        - Cleanup dry-run
+        - Real cleanup and restore pilot
+    validations:
+      required: true
+  - type: textarea
+    id: result
+    attributes:
+      label: Commands, exact result, and warnings
+      description: Use counts and hashes only when safely redacted. Do not include raw session content.
+    validations:
+      required: true
+  - type: textarea
+    id: interruption
+    attributes:
+      label: Disconnect, remount, or interruption behavior
+      description: State whether this was tested; do not infer it from a normal run.
+  - type: checkboxes
+    id: safety
+    attributes:
+      label: Evidence confirmation
+      options:
+        - label: The report contains no real rollout, credential, personal path, device identifier, or archive object.
+          required: true

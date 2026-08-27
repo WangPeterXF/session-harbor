@@ -1,7 +1,7 @@
 {
   "name": "session-harbor",
   "version": "0.3.0",
-  "description": "Local-first, integrity-checked archiving and cross-device continuity for Codex sessions.",
+  "description": "Local-first Codex session backup, verified cleanup, restore, and reviewed cross-device continuity.",
   "author": "Xiaofan Wang",
   "type": "module",
   "license": "PolyForm-Noncommercial-1.0.0",
@@ -13,17 +13,24 @@
     "docs/",
     "examples/",
     "schemas/",
+    "evals/",
+    "AGENTS.md",
     "README.md",
     "LICENSE",
     "COMMERCIAL-LICENSE.md",
     "CONTRIBUTING.md",
+    "PRIVACY.md",
     "SECURITY.md",
+    "SUPPORT.md",
+    "TERMS.md",
     "THIRD_PARTY.md"
   ],
   "scripts": {
-    "check": "node --check plugins/session-harbor/scripts/session-harbor.mjs && node --check plugins/session-harbor/scripts/lib/archive-core.mjs && node --check plugins/session-harbor/scripts/lib/atomic-store.mjs && node --check plugins/session-harbor/scripts/lib/backup-runner.mjs && node --check plugins/session-harbor/scripts/lib/bridge-contracts.mjs && node --check plugins/session-harbor/scripts/lib/device-registry.mjs && node --check plugins/session-harbor/scripts/lib/management-dashboard.mjs && node --check plugins/session-harbor/scripts/lib/operation-state.mjs && node --check plugins/session-harbor/scripts/lib/settings.mjs && node --check plugins/session-harbor/scripts/lib/session-snapshot.mjs && node --check plugins/session-harbor/scripts/lib/peer-discovery.mjs && node --check plugins/session-harbor/scripts/lib/project-map.mjs && node --check plugins/session-harbor/scripts/lib/retention-runner.mjs && node --check plugins/session-harbor/scripts/lib/memory-exchange.mjs && node --check plugins/session-harbor/scripts/lib/migration.mjs && node --check plugins/session-harbor/scripts/launchagent.mjs && node --check plugins/session-harbor/scripts/windows-task.mjs && node --check plugins/session-harbor/scripts/validate-contract.mjs && node --check scripts/build-windows-handoff.mjs && npm run check:contracts",
+    "check": "node --check plugins/session-harbor/scripts/session-harbor.mjs && node --check plugins/session-harbor/scripts/lib/archive-core.mjs && node --check plugins/session-harbor/scripts/lib/atomic-store.mjs && node --check plugins/session-harbor/scripts/lib/backup-runner.mjs && node --check plugins/session-harbor/scripts/lib/bridge-contracts.mjs && node --check plugins/session-harbor/scripts/lib/device-registry.mjs && node --check plugins/session-harbor/scripts/lib/management-dashboard.mjs && node --check plugins/session-harbor/scripts/lib/operation-state.mjs && node --check plugins/session-harbor/scripts/lib/settings.mjs && node --check plugins/session-harbor/scripts/lib/session-snapshot.mjs && node --check plugins/session-harbor/scripts/lib/peer-discovery.mjs && node --check plugins/session-harbor/scripts/lib/project-map.mjs && node --check plugins/session-harbor/scripts/lib/retention-runner.mjs && node --check plugins/session-harbor/scripts/lib/memory-exchange.mjs && node --check plugins/session-harbor/scripts/lib/migration.mjs && node --check plugins/session-harbor/scripts/launchagent.mjs && node --check plugins/session-harbor/scripts/windows-task.mjs && node --check plugins/session-harbor/scripts/validate-contract.mjs && node --check scripts/build-windows-handoff.mjs && node --check scripts/generate-agent-docs.mjs && npm run check:contracts && npm run docs:check",
     "handoff:plan": "node scripts/build-windows-handoff.mjs --output ./SessionHarbor-Handoff",
     "check:contracts": "node plugins/session-harbor/scripts/validate-contract.mjs",
+    "docs:generate": "node scripts/generate-agent-docs.mjs",
+    "docs:check": "node scripts/generate-agent-docs.mjs --check",
     "test": "node --test tests/*.test.mjs"
   },
   "engines": {
@@ -32,12 +39,18 @@
   "keywords": [
     "codex",
     "openai-codex",
-    "session",
-    "archive",
+    "codex-plugin",
+    "ai-agent",
     "backup",
+    "session-backup",
+    "session-archive",
+    "session-restore",
     "local-first",
     "macos",
     "windows",
-    "cross-device"
+    "cross-device",
+    "external-drive",
+    "nas",
+    "data-integrity"
   ]
 }

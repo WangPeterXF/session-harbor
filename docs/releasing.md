@@ -22,8 +22,10 @@
 - Suggested repository name: `session-harbor`.
 - Keep `0.3.0` marked as a preview until all-session backup, restore, drive-remount scheduling, and
   independently backed-up live-data cleanup beta gates pass.
-- Activate `docs/github-actions-ci.template.yml` as `.github/workflows/ci.yml`, then protect the
-  default branch and require CI on macOS, Windows, and Linux.
+- Keep `.github/workflows/ci.yml` green on macOS, Windows, and Linux before a release, then protect
+  the default branch and require that CI after the initial workflow has completed successfully.
+- Run `npm run docs:generate` before release and require `npm run docs:check` to prevent machine-
+  readable discovery files from drifting from their authoritative sources.
 - Publish the source-available repository first. Do not publish npm artifacts until install, upgrade,
   uninstall, and commercial-licensing behavior is documented and tested.
 - Never attach configs, catalogs, diagnostic logs, or example archives captured from a real Codex home.
@@ -31,6 +33,8 @@
   that preserves separate commercial licensing and future relicensing options.
 - The public marketplace name must be `session-harbor`; do not publish the development-only name
   `personal` or an unresolved bootstrap placeholder.
+- For a public plugin-directory submission, re-run the five positive and three negative cases in
+  `evals/plugin-discovery.json` and update `docs/openai-plugin-submission.md` with the observed result.
 
 ## Release evidence
 

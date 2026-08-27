@@ -1,0 +1,8 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security report
+    url: https://github.com/WangPeterXF/session-harbor/blob/main/SECURITY.md
+    about: Do not put session contents, credentials, personal paths, or archive objects in a public issue.
+  - name: Support and evidence rules
+    url: https://github.com/WangPeterXF/session-harbor/blob/main/SUPPORT.md
+    about: Review the required synthetic and redacted evidence before filing.

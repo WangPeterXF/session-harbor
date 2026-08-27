@@ -1,17 +1,25 @@
 {
   "name": "session-harbor",
-  "version": "0.3.0+codex.20260826095245",
-  "description": "Manage, back up, reclaim, restore, and exchange Codex sessions with verified safety gates.",
+  "version": "0.3.0+codex.20260827011935",
+  "description": "Back up, verify, reclaim, restore, and exchange Codex sessions with fail-closed safety gates.",
   "author": {
-    "name": "Xiaofan Wang"
+    "name": "Xiaofan Wang",
+    "url": "https://github.com/WangPeterXF"
   },
+  "homepage": "https://wangpeterxf.github.io/session-harbor/",
+  "repository": "https://github.com/WangPeterXF/session-harbor",
   "license": "PolyForm-Noncommercial-1.0.0",
   "keywords": [
     "codex",
-    "session",
-    "archive",
+    "openai-codex",
+    "codex-plugin",
     "backup",
-    "local-first"
+    "session-backup",
+    "session-restore",
+    "local-first",
+    "cross-device",
+    "macos",
+    "windows"
   ],
   "skills": "./skills/",
   "interface": {
@@ -29,12 +37,17 @@
       "Retention Policy",
       "Management Dashboard"
     ],
+    "websiteURL": "https://wangpeterxf.github.io/session-harbor/",
+    "privacyPolicyURL": "https://github.com/WangPeterXF/session-harbor/blob/main/PRIVACY.md",
+    "termsOfServiceURL": "https://github.com/WangPeterXF/session-harbor/blob/main/TERMS.md",
     "defaultPrompt": [
       "Use SessionHarbor as my management center and show the current read-only dashboard.",
       "Show a dry-run plan to incrementally back up all my Codex sessions.",
-      "Schedule all-session backup on drive mount and weekly without enabling cleanup.",
-      "Preview cleanup of verified local sessions inactive for 30 days.",
       "List sessions already removed locally and restore a selected one."
-    ]
+    ],
+    "brandColor": "#20DCEB",
+    "composerIcon": "./assets/composer-icon.png",
+    "logo": "./assets/logo.png",
+    "logoDark": "./assets/logo-dark.png"
   }
 }
